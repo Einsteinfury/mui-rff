@@ -66,7 +66,7 @@ function normalizeValidationError(err: YupValidationError, translator?: Translat
 export function makeValidate<T>(validator: YupSchema<T>, translator?: Translator) {
 	return async (values: T): Promise<ValidationError> => {
 		try {
-			await validator.validate(values, { abortEarly: false });
+			await validator.validate(values, { abortEarly: true });
 			return {};
 		} catch (err) {
 			return normalizeValidationError(err, translator);

@@ -38,6 +38,6 @@ export function useFieldForErrors(name: string) {
 	return useField(name, config);
 }
 
-export function showError({ meta: { submitError, dirtySinceLastSubmit, error, touched, modified } }: showErrorProps) {
-	return !!(((submitError && !dirtySinceLastSubmit) || error) && (touched || modified));
+export function showError({ meta: { error, touched } }: showErrorProps) {
+	return error && touched;
 }
